@@ -14,7 +14,7 @@
     <RepositoryType>Github</RepositoryType>
     <PackageTags>PowerToys</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <AssemblyName>Microsoft.PowerToys.Settings.UI.Lib</AssemblyName>
   </PropertyGroup>
 
@@ -27,6 +27,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>

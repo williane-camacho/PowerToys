@@ -1,0 +1,21 @@
+﻿<Page x:Class="Microsoft.PowerToys.Settings.UI.Views.HelloWorldPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="using:Microsoft.PowerToys.Settings.UI.Controls"
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls" mc:Ignorable="d"
+        AutomationProperties.LandmarkType="Main">
+    <controls:SettingsPageControl x:Uid="HelloWorld"
+            ModuleImageSource="ms-appx:///Assets/Modules/ShortcutGuide.png">
+        <controls:SettingsPageControl.ModuleContent>
+            <TextBox x:Uid="ShortcutGuide_DisabledApps_TextBoxControl"
+                    Margin="{StaticResource ExpanderSettingMargin}"
+                    Text="{x:Bind Mode=TwoWay, Path=ViewModel.StringProp, UpdateSourceTrigger=PropertyChanged}"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollMode="Enabled"
+                    ScrollViewer.IsVerticalRailEnabled="True" TextWrapping="Wrap"
+                    AcceptsReturn="True" MinWidth="240" MinHeight="160" />
+        </controls:SettingsPageControl.ModuleContent>
+    </controls:SettingsPageControl>
+</Page>

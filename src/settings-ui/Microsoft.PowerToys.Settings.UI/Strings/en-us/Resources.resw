@@ -228,6 +228,11 @@
     <value>Shortcut Guide</value>
     <comment>Product name: Navigation view item name for Shortcut Guide</comment>
   </data>
+  <data name="Shell_HelloWorld.Content" xml:space="preserve">
+    <value>Hello World</value>
+    <comment>Product name: Navigation view item name for Hello World</comment>
+  </data>
+
   <data name="Shell_PowerPreview.Content" xml:space="preserve">
     <value>File Explorer add-ons</value>
     <comment>Product name: Navigation view item name for File Explorer.  Please use File Explorer as in the context of File Explorer in Windows</comment>

@@ -159,6 +159,22 @@ namespace Microsoft.PowerToys.Settings.UI.Library
             }
         }
 
+        private bool helloWorld = true;
+
+        [JsonPropertyName("HelloWorld")]
+        public bool HelloWorld
+        {
+            get => helloWorld;
+            set
+            {
+                if (helloWorld != value)
+                {
+                    LogTelemetryEvent(value);
+                    helloWorld = value;
+                }
+            }
+        }
+
         private bool awake;
 
         [JsonPropertyName("Awake")]

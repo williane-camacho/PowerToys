@@ -68,6 +68,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>..\..\..\x64\Release\SettingsUI\</OutputPath>
@@ -80,6 +81,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
@@ -105,7 +107,7 @@
     <Compile Include="Controls\ShortcutControl\ShortcutDialogContentControl.xaml.cs">
       <DependentUpon>ShortcutDialogContentControl.xaml</DependentUpon>
     </Compile>
- <Compile Include="Controls\ShortcutControl\ShortcutWithTextLabelControl.xaml.cs">
+    <Compile Include="Controls\ShortcutControl\ShortcutWithTextLabelControl.xaml.cs">
       <DependentUpon>ShortcutWithTextLabelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SettingsPageControl\SettingsPageControl.xaml.cs">
@@ -185,6 +187,9 @@
     </Compile>
     <Compile Include="Views\GeneralPage.xaml.cs">
       <DependentUpon>GeneralPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelloWorldPage.xaml.cs">
+      <DependentUpon>HelloWorldPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ImageResizerPage.xaml.cs">
       <DependentUpon>ImageResizerPage.xaml</DependentUpon>
@@ -418,6 +423,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GeneralPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelloWorldPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
