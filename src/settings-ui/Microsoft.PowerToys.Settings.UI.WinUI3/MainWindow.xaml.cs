@@ -30,7 +30,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            // myButton.Content = "Clicked";
         }
     }
 }
