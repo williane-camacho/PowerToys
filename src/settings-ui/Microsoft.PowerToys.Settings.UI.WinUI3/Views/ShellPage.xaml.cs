@@ -14,6 +14,7 @@ using Microsoft.UI.Xaml.Controls;
 
 // TODO(stefan)
 using WSL = Windows.System.Launcher;
+using Windows.ApplicationModel.Resources;
 
 namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 {
@@ -186,14 +187,13 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 
             if (AutomationPeer.ListenerExists(AutomationEvents.MenuOpened))
             {
-                // TODO(stefan)
-/*                var loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+                var loader = ResourceLoader.GetForViewIndependentUse();
                 peer.RaiseNotificationEvent(
                     AutomationNotificationKind.ActionCompleted,
                     AutomationNotificationProcessing.ImportantMostRecent,
                     loader.GetString("Shell_NavigationMenu_Announce_Open"),
                     "navigationMenuPaneOpened");
-*/            }
+            }
         }
 
         [SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Params are required for event handler signature requirements.")]
@@ -214,13 +214,13 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             if (AutomationPeer.ListenerExists(AutomationEvents.MenuClosed))
             {
                 // TODO(stefan)
-             /*   var loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+                var loader = ResourceLoader.GetForViewIndependentUse();
                 peer.RaiseNotificationEvent(
                     AutomationNotificationKind.ActionCompleted,
                     AutomationNotificationProcessing.ImportantMostRecent,
                     loader.GetString("Shell_NavigationMenu_Announce_Collapse"),
                     "navigationMenuPaneClosed");
-            */}
+            }
         }
 
         private void OOBEItem_Tapped(object sender, Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)

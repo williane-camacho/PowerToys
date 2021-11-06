@@ -71,9 +71,17 @@ namespace Microsoft.PowerToys.Settings.UI.Library
             {
                 try
                 {
-                    long seconds = long.Parse(LastCheckedDate, CultureInfo.CurrentCulture);
-                    var date = DateTimeOffset.FromUnixTimeSeconds(seconds).UtcDateTime;
-                    return date.ToLocalTime().ToString(CultureInfo.CurrentCulture);
+                    // TODO(stefan) revert this
+                    if (LastCheckedDate != null)
+                    {
+                        long seconds = long.Parse(LastCheckedDate, CultureInfo.CurrentCulture);
+                        var date = DateTimeOffset.FromUnixTimeSeconds(seconds).UtcDateTime;
+                        return date.ToLocalTime().ToString(CultureInfo.CurrentCulture);
+                    }
+                    else
+                    {
+                        return DateTime.UtcNow.ToString(CultureInfo.CurrentCulture);
+                    }
                 }
 #pragma warning disable CA1031 // Do not catch general exception types
                 catch (Exception)

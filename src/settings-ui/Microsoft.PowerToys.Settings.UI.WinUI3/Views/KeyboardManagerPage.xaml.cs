@@ -23,14 +23,15 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
     {
         private const string PowerToyName = "Keyboard Manager";
 
-        private readonly CoreDispatcher dispatcher;
+        // TODO(stefan) bring this back
+        //private readonly CoreDispatcher dispatcher;
         private readonly IFileSystemWatcher watcher;
 
         public KeyboardManagerViewModel ViewModel { get; }
 
         public KeyboardManagerPage()
         {
-            dispatcher = Window.Current.Dispatcher;
+            //dispatcher = Window.Current.Dispatcher;
 
             var settingsUtils = new SettingsUtils();
             ViewModel = new KeyboardManagerViewModel(settingsUtils, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, FilterRemapKeysList);
@@ -50,18 +51,18 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             // Todo: Handle duplicate events either by somehow suppress them or re-read the configuration everytime since we will be updating the UI only if something is changed.
             if (ViewModel.LoadProfile())
             {
-                await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                /*await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     ViewModel.NotifyFileChanged();
-                });
+                });*/
             }
         }
 
         private static void CombineRemappings(List<KeysDataModel> remapKeysList, uint leftKey, uint rightKey, uint combinedKey)
         {
             // Using InvariantCulture for keys as they are internally represented as numerical values
-            KeysDataModel firstRemap = remapKeysList.Find(x => uint.Parse(x.OriginalKeys, CultureInfo.InvariantCulture) == leftKey);
-            KeysDataModel secondRemap = remapKeysList.Find(x => uint.Parse(x.OriginalKeys, CultureInfo.InvariantCulture) == rightKey);
+            KeysDataModel firstRemap = remapKeysList?.Find(x => uint.Parse(x.OriginalKeys, CultureInfo.InvariantCulture) == leftKey);
+            KeysDataModel secondRemap = remapKeysList?.Find(x => uint.Parse(x.OriginalKeys, CultureInfo.InvariantCulture) == rightKey);
             if (firstRemap != null && secondRemap != null)
             {
                 if (firstRemap.NewRemapKeys == secondRemap.NewRemapKeys)

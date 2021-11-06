@@ -23,8 +23,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
         {
             InitializeComponent();
             var settingsUtils = new SettingsUtils();
-            //TODO(stefan)
-            //var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            var resourceLoader = ResourceLoader.GetForViewIndependentUse();
             Func<string, string> loader = (string name) =>
             {
                 //return resourceLoader.GetString(name);
@@ -42,7 +41,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             if (deleteRowButton != null)
             {
                 ImageSize x = (ImageSize)deleteRowButton.DataContext;
-                ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
+                ResourceLoader resourceLoader = ResourceLoader.GetForViewIndependentUse();
 
                 ContentDialog dialog = new ContentDialog();
                 dialog.XamlRoot = RootPage.XamlRoot;
@@ -73,7 +72,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
         {
             try
             {
-                ViewModel.AddRow(ResourceLoader.GetForCurrentView().GetString("ImageResizer_DefaultSize_NewSizePrefix"));
+                ViewModel.AddRow(ResourceLoader.GetForViewIndependentUse().GetString("ImageResizer_DefaultSize_NewSizePrefix"));
             }
             catch (Exception ex)
             {
@@ -87,8 +86,8 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             if (ViewModel.IsListViewFocusRequested)
             {
                 // Set focus to the last item in the ListView
-                int size = ImagesSizesListView.Items.Count;
-                ((ListViewItem)ImagesSizesListView.ContainerFromIndex(size - 1)).Focus(FocusState.Programmatic);
+                //int size = ImagesSizesListView.Items.Count;
+                //((ListViewItem)ImagesSizesListView.ContainerFromIndex(size - 1)).Focus(FocusState.Programmatic);
 
                 // Reset the focus requested flag
                 ViewModel.IsListViewFocusRequested = false;

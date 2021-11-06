@@ -9,6 +9,7 @@ using Microsoft.PowerToys.Settings.UI.Library;
 using Microsoft.PowerToys.Settings.UI.Library.Utilities;
 using Microsoft.PowerToys.Settings.UI.Library.ViewModels;
 using Microsoft.UI.Xaml.Controls;
+using Windows.ApplicationModel.Resources;
 
 // TODO(stefan)
 using WindowsUI = Windows.UI;
@@ -52,8 +53,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
                 }
             });
 
-            // TODO(stefan)
-/*            var loader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            var loader = ResourceLoader.GetForViewIndependentUse();
 
             searchResultPreferencesOptions = new ObservableCollection<Tuple<string, string>>();
             searchResultPreferencesOptions.Add(Tuple.Create(loader.GetString("PowerLauncher_SearchResultPreference_AlphabeticalOrder"), "alphabetical_order"));
@@ -64,7 +64,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             searchTypePreferencesOptions.Add(Tuple.Create(loader.GetString("PowerLauncher_SearchTypePreference_ApplicationName"), "application_name"));
             searchTypePreferencesOptions.Add(Tuple.Create(loader.GetString("PowerLauncher_SearchTypePreference_StringInApplication"), "string_in_application"));
             searchTypePreferencesOptions.Add(Tuple.Create(loader.GetString("PowerLauncher_SearchTypePreference_ExecutableName"), "executable_name"));
-*/        }
+        }
 
         private void OpenColorsSettings_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
