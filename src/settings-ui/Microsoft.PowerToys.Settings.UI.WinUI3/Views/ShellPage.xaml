@@ -19,7 +19,7 @@
     </i:Interaction.Behaviors>
 
     <Grid x:Name="RootGrid"
-          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+          >
 
         <muxc:NavigationView x:Name="navigationView"
                              IsBackButtonVisible="Collapsed"

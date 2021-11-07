@@ -7,7 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <local:ShellPage/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+        <!--<Grid x:Name="CustomTitleBar" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="16,8,8,8">
+                <Image Source="ms-appx:///Assets/FluentIcons/FluentIconsPowerToys.png" Width="16" />
+                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Margin="12,0,0,0" Text="PowerToys" />
+            </StackPanel>
+        </Grid>-->
+        <local:ShellPage Grid.Row="1"/>
     </Grid>
 </Window>
