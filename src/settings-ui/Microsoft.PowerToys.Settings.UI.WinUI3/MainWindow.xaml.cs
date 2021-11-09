@@ -1,17 +1,8 @@
-﻿using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
+﻿using Microsoft.PowerToys.Settings.UI.Library.Utilities;
+using Microsoft.PowerToys.Settings.UI.WinUI3.Views;
+using Microsoft.UI.Xaml;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Data.Json;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -26,6 +17,61 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
         public MainWindow()
         {
             this.InitializeComponent();
+
+            // send IPC Message
+            ShellPage.SetDefaultSndMessageCallback(msg =>
+            {
+                // IPC Manager is null when launching runner directly
+                App.GetTwoWayIPCManager()?.Send(msg);
+            });
+
+            // send IPC Message
+            ShellPage.SetRestartAdminSndMessageCallback(msg =>
+            {
+                App.GetTwoWayIPCManager()?.Send(msg);
+                // TODO(stefan)
+                // isOpen = false;
+                Environment.Exit(0);
+                // System.Windows.Application.Current.Shutdown(); // close application
+            });
+
+            // send IPC Message
+            ShellPage.SetCheckForUpdatesMessageCallback(msg =>
+            {
+                App.GetTwoWayIPCManager()?.Send(msg);
+            });
+
+            // open oobe
+            ShellPage.SetOpenOobeCallback(() =>
+            {
+/*                var oobe = new OobeWindow();
+                oobe.Show();
+*/            });
+
+            // receive IPC Message
+            App.IPCMessageReceivedCallback = (string msg) =>
+            {
+                if (ShellPage.ShellHandler.IPCResponseHandleList != null)
+                {
+                    var success = JsonObject.TryParse(msg, out JsonObject json);
+                    if (success)
+                    {
+                        foreach (Action<JsonObject> handle in ShellPage.ShellHandler.IPCResponseHandleList)
+                        {
+                            handle(json);
+                        }
+                    }
+                    else
+                    {
+                        Logger.LogError("Failed to parse JSON from IPC message.");
+                    }
+                }
+            };
+
+            ShellPage.SetElevationStatus(App.IsElevated);
+            ShellPage.SetIsUserAnAdmin(App.IsUserAnAdmin);
+            shellPage.Refresh();
         }
+
     }
 }

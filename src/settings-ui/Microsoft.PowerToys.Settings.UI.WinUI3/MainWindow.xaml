@@ -18,6 +18,6 @@
                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Margin="12,0,0,0" Text="PowerToys" />
             </StackPanel>
         </Grid>-->
-        <local:ShellPage Grid.Row="1"/>
+        <local:ShellPage Grid.Row="1" x:Name="shellPage"/>
     </Grid>
 </Window>
