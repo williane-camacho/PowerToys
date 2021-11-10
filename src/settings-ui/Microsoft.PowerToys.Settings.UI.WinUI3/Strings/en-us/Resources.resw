@@ -199,9 +199,11 @@
   <data name="VideoConference_Shortcuts.Header" xml:space="preserve">
     <value>Shortcuts</value>
   </data>
+<!--
   <data name="VideoConference_CameraOverlayImageAlt.AutomationProperties.Name" xml:space="preserve">
     <value>Camera overlay image preview</value>
   </data>
+-->
   <data name="VideoConference_CameraOverlayImageBrowse.Content" xml:space="preserve">
     <value>Browse</value>
   </data>
