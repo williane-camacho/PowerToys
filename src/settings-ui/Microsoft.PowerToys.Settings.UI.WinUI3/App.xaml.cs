@@ -63,11 +63,13 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="args">Details about the launch request and process.</param>
+      
+        private MainWindow m_window;
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
-        {
+        {   
             m_window = new MainWindow();
-            //m_window.ExtendsContentIntoTitleBar = true;
-            //m_window.SetTitleBar(m_window.CustomTitleBar); // This should work according to docs, but it doesn't.... So disabling for now together with ExtendsContentIntoTitleBar
+            m_window.ExtendsContentIntoTitleBar = true;
+
             m_window.Title = "PowerToys Settings";
             m_window.Activate();
 
@@ -144,7 +146,6 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
             return selectedTheme == "DARK" || (selectedTheme == "SYSTEM" && uiTheme == "#FF000000");
         }
 
-        private MainWindow m_window;
         private static ISettingsUtils settingsUtils = new SettingsUtils();
     }
 }

@@ -15,6 +15,11 @@
                 <ResourceDictionary Source="/Themes/SettingsExpanderStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <SolidColorBrush x:Key="WindowCaptionBackground">Green</SolidColorBrush>
+            <SolidColorBrush x:Key="WindowCaptionBackgroundDisabled">LightGreen</SolidColorBrush>
+            <SolidColorBrush x:Key="WindowCaptionForeground">Red</SolidColorBrush>
+            <SolidColorBrush x:Key="WindowCaptionForegroundDisabled">Pink</SolidColorBrush>
+
             <Thickness x:Key="InfoBarIconMargin">6,16,16,16</Thickness>
             <Thickness x:Key="InfoBarContentRootPadding">16,0,0,0</Thickness>
             <x:Double x:Key="SettingActionControlMinWidth">240</x:Double>
