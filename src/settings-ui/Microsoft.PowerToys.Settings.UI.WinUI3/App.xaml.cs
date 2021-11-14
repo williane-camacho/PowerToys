@@ -68,8 +68,6 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {   
             m_window = new MainWindow();
-            m_window.ExtendsContentIntoTitleBar = true;
-
             m_window.Title = "PowerToys Settings";
             m_window.Activate();
 
