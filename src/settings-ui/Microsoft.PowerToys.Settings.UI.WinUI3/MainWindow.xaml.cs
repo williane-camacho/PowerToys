@@ -33,10 +33,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
             ShellPage.SetRestartAdminSndMessageCallback(msg =>
             {
                 App.GetTwoWayIPCManager()?.Send(msg);
-                // TODO(stefan)
-                // isOpen = false;
                 Environment.Exit(0);
-                // System.Windows.Application.Current.Shutdown(); // close application
             });
 
             // send IPC Message
@@ -74,8 +71,14 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
 
             ShellPage.SetElevationStatus(App.IsElevated);
             ShellPage.SetIsUserAnAdmin(App.IsUserAnAdmin);
-            shellPage.Refresh();
+            //shellPage.Refresh();
+
         }
 
+        public void NavigateToSection(Type type)
+        {
+            Activate();
+            ShellPage.Navigate(type);
+        }
     }
 }

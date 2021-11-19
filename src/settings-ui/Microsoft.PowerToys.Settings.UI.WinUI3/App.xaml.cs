@@ -118,8 +118,6 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
                     }
                 });
                 ipcmanager.Start();
-                // TODO(stefan)
-                //app.Run();
             }
             else
             {
