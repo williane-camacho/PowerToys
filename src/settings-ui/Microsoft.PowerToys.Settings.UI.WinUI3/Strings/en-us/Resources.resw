@@ -199,11 +199,9 @@
   <data name="VideoConference_Shortcuts.Header" xml:space="preserve">
     <value>Shortcuts</value>
   </data>
-<!--
-  <data name="VideoConference_CameraOverlayImageAlt.AutomationProperties.Name" xml:space="preserve">
+  <data name="VideoConference_CameraOverlayImageAlt.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Camera overlay image preview</value>
   </data>
--->
   <data name="VideoConference_CameraOverlayImageBrowse.Content" xml:space="preserve">
     <value>Browse</value>
   </data>
@@ -285,12 +283,10 @@
     <value>Remap a key</value>
     <comment>Keyboard Manager remap keyboard button content</comment>
   </data>
-  <!--
-  <data name="KeyboardManager_RemapKeyboardButton_Accessible.AutomationProperties.Name" xml:space="preserve">
+  <data name="KeyboardManager_RemapKeyboardButton_Accessible.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Remap a key</value>
     <comment>Keyboard Manager remap keyboard button content</comment>
   </data>
-  -->
   <data name="KeyboardManager_Keys.Header" xml:space="preserve">
     <value>Keys</value>
     <comment>Keyboard Manager remap keyboard header</comment>
@@ -299,12 +295,10 @@
     <value>Remap a shortcut</value>
     <comment>Keyboard Manager remap shortcuts button</comment>
   </data>
-  <!--
-  <data name="KeyboardManager_RemapShortcutsButton_Accessible.AutomationProperties.Name" xml:space="preserve">
+  <data name="KeyboardManager_RemapShortcutsButton_Accessible.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Remap a shortcut</value>
     <comment>Keyboard Manager remap shortcuts button</comment>
   </data>
-  -->
   <data name="KeyboardManager_Shortcuts.Header" xml:space="preserve">
     <value>Shortcuts</value>
     <comment>Keyboard Manager remap keyboard header</comment>
@@ -315,14 +309,12 @@
   <data name="Shortcut.Header" xml:space="preserve">
     <value>Shortcut</value>
   </data>
-  <!--
-  <data name="RemapKeysList.AutomationProperties.Name" xml:space="preserve">
+  <data name="RemapKeysList.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Current Key Remappings</value>
   </data>
-  <data name="RemapShortcutsList.AutomationProperties.Name" xml:space="preserve">
+  <data name="RemapShortcutsList.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Current Shortcut Remappings</value>
   </data>
-  -->
   <data name="KeyboardManager_RemappedKeysListItem.AutomationProperties.Name" xml:space="preserve">
     <value>Key Remapping</value>
     <comment>key as in keyboard key</comment>
@@ -486,12 +478,10 @@
     <value>Launch layout editor</value>
     <comment>launches the FancyZones layout editor application</comment>
   </data>
-<!--
-  <data name="FancyZones_LaunchEditorButton_Accessible.AutomationProperties.Name" xml:space="preserve">
+  <data name="FancyZones_LaunchEditorButton_Accessible.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Launch layout editor</value>
     <comment>launches the FancyZones layout editor application</comment>
   </data>
--->  
   <data name="FancyZones_LaunchEditorButtonControl.Description" xml:space="preserve">
     <value>Set and manage your layouts</value>
     <comment>launches the FancyZones layout editor application</comment>
@@ -725,11 +715,9 @@
     <value>Enable Image Resizer</value>
     <comment>do not loc the Product name.  Do you want this feature on / off</comment>
   </data>
-  <!--
-  <data name="ImagesSizesListView.AutomationProperties.Name" xml:space="preserve">
+  <data name="ImagesSizesListView.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Image Size</value>
   </data>
-  -->
   <data name="ImageResizer_Configurations.AutomationProperties.Name" xml:space="preserve">
     <value>Configurations</value>
   </data>
@@ -748,12 +736,10 @@
   <data name="ImageResizer_Size.Header" xml:space="preserve">
     <value>Unit</value>
   </data>
-  <!--
-  <data name="RemoveButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="RemoveButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Remove</value>
     <comment>Removes a user defined setting group for Image Resizer</comment>
   </data>
-  -->
   <data name="ImageResizer_Image.AutomationProperties.Name" xml:space="preserve">
     <value>Image Resizer</value>
   </data>
@@ -926,11 +912,9 @@
   <data name="General_VersionLastChecked.Text" xml:space="preserve">
     <value>Last checked: </value>
   </data>
-  <!--
-  <data name="General_Version.AutomationProperties.Name" xml:space="preserve">
+  <data name="General_Version.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Version</value>
   </data>
-  -->
   <data name="Admin_mode.Header" xml:space="preserve">
     <value>Administrator mode</value>
   </data>
@@ -1028,11 +1012,9 @@ Made with 💗 by Microsoft and the PowerToys community.</value>
   <data name="ImageResizer_FilenameFormatPlaceholder.PlaceholderText" xml:space="preserve">
     <value>Example: %1 (%2)</value>
   </data>
-<!--
-  <data name="ImageResizer_FilenameParameters.AutomationProperties.Name" xml:space="preserve">
+  <data name="ImageResizer_FilenameParameters.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Filename parameters</value>
   </data>
--->
   <data name="Radio_Theme_Dark.Content" xml:space="preserve">
     <value>Dark</value>
     <comment>Dark refers to color, not weight</comment>
@@ -1136,14 +1118,12 @@ Made with 💗 by Microsoft and the PowerToys community.</value>
     <value>Small</value>
     <comment>The size of the image</comment>
   </data>
-  <!--
-  <data name="FancyZones_MoveWindowBasedOnRelativePosition_Accessible.AutomationProperties.Name" xml:space="preserve">
+  <data name="FancyZones_MoveWindowBasedOnRelativePosition_Accessible.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Windows key + Up, down, left or right arrow key to move windows based on relative position</value>
   </data>
-  <data name="FancyZones_MoveWindowLeftRightBasedOnZoneIndex_Accessible.AutomationProperties.Name" xml:space="preserve">
+  <data name="FancyZones_MoveWindowLeftRightBasedOnZoneIndex_Accessible.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Windows key + Left or right arrow keys to move windows based on zone index</value>
   </data>
-  -->
   <data name="FancyZones_MoveWindowBasedOnRelativePosition_Description.Text" xml:space="preserve">
     <value>Windows key +    or </value>
     <comment>Do not loc the icons (hex numbers)</comment>
@@ -1195,11 +1175,9 @@ Made with 💗 by Microsoft and the PowerToys community.</value>
   <data name="PowerLauncher_IncludeInGlobalResultDescription.Text" xml:space="preserve">
     <value>Show results on queries without direct activation command</value>
   </data>
-<!--
-  <data name="PowerLauncher_EnablePluginToggle.AutomationProperties.Name" xml:space="preserve">
+  <data name="PowerLauncher_EnablePluginToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Enable plugin</value>
   </data>
--->
   <data name="Run_AdditionalOptions.Text" xml:space="preserve">
     <value>Additional options</value>
   </data>
@@ -1556,11 +1534,9 @@ From there, simply click on a Markdown file, PDF file or SVG icon in the File Ex
   <data name="ImageResizer_Unit_Pixel" xml:space="preserve">
     <value>Pixels</value>
   </data>
-  <!--
-  <data name="EditButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="EditButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Edit</value>
   </data>
-  -->
   <data name="No" xml:space="preserve">
     <value>No</value>
     <comment>Label of a cancel button</comment>
@@ -1581,14 +1557,12 @@ From there, simply click on a Markdown file, PDF file or SVG icon in the File Ex
   <data name="ExcludedApps.Header" xml:space="preserve">
     <value>Excluded apps</value>
   </data>
-  <!--
-  <data name="Enable_ColorFormat.AutomationProperties.Name" xml:space="preserve">
+  <data name="Enable_ColorFormat.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Enable colorformat</value>
   </data>
-  <data name="More_Options_Button.AutomationProperties.Name" xml:space="preserve">
+  <data name="More_Options_Button.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>More options</value>
   </data>
-  -->
   <data name="More_Options_ButtonTooltip.Text" xml:space="preserve">
     <value>More options</value>
   </data>
@@ -1671,11 +1645,9 @@ From there, simply click on a Markdown file, PDF file or SVG icon in the File Ex
   <data name="PowerLauncher_SearchList.PlaceholderText" xml:space="preserve">
     <value>Search this list</value>
   </data>
-<!--
-  <data name="PowerLauncher_SearchList.AutomationProperties.Name" xml:space="preserve">
+  <data name="PowerLauncher_SearchList.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Search this list</value>
   </data>
--->
   <data name="Awake.SecondaryLinksHeader" xml:space="preserve">
     <value>Attribution</value>
   </data>

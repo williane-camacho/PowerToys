@@ -13,7 +13,9 @@
     d:DesignWidth="400">
 
     <Grid>
-        <!--TODO(stefan)<muxc:DropDownButton Padding="4,4,8,4" AutomationProperties.FullDescription="{x:Bind clr:ColorHelper.ToDisplayName(SelectedColor), Mode=OneWay }">-->
+        <!--TODO(stefan) ColorHelper.ToDisplayName() not available in WinUI3
+        <muxc:DropDownButton Padding="4,4,8,4" AutomationProperties.FullDescription="{x:Bind clr:ColorHelper.ToDisplayName(SelectedColor), Mode=OneWay }">
+        -->
         <muxc:DropDownButton Padding="4,4,8,4">
                 <Border x:Name="ColorPreviewBorder"
                     Width="48"

@@ -7,14 +7,12 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.PowerToys.Settings.UI.WinUI3.Services;
 using Microsoft.PowerToys.Settings.UI.WinUI3.ViewModels;
+using Windows.ApplicationModel.Resources;
 using Windows.Data.Json;
+using Windows.System;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
-
-// TODO(stefan)
-using WSL = Windows.System.Launcher;
-using Windows.ApplicationModel.Resources;
 
 namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 {
@@ -213,7 +211,6 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 
             if (AutomationPeer.ListenerExists(AutomationEvents.MenuClosed))
             {
-                // TODO(stefan)
                 var loader = ResourceLoader.GetForViewIndependentUse();
                 peer.RaiseNotificationEvent(
                     AutomationNotificationKind.ActionCompleted,
@@ -230,7 +227,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 
         private async void FeedbackItem_Tapped(object sender, Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            await WSL.LaunchUriAsync(new Uri("https://aka.ms/powerToysGiveFeedback"));
+            await Launcher.LaunchUriAsync(new Uri("https://aka.ms/powerToysGiveFeedback"));
         }
     }
 }

@@ -9,7 +9,7 @@
     <RuntimeIdentifiers>win10-x64;</RuntimeIdentifiers>
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
-    <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+    <EnablePreviewMsixTooling>false</EnablePreviewMsixTooling>
     <WindowsPackageType>None</WindowsPackageType>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>

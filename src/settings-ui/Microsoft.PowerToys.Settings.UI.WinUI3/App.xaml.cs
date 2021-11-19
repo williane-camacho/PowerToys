@@ -2,13 +2,11 @@
 using System.Globalization;
 using Microsoft.PowerToys.Settings.UI.Library;
 
-// TODO(stefan)
-using WindowsUI = Windows.UI;
 using interop;
 using System;
-using System.Diagnostics;
 using ManagedCommon;
-using Microsoft.PowerToys.Settings.UI.WinUI3.Views;
+using Windows.UI.ViewManagement;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -66,7 +64,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
       
         private MainWindow m_window;
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
-        {   
+        {
             m_window = new MainWindow();
             m_window.ExtendsContentIntoTitleBar = true;
 
@@ -74,6 +72,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
             m_window.Activate();
 
             var cmdArgs = Environment.GetCommandLineArgs();
+
             if (cmdArgs != null && cmdArgs.Length >= RequiredArgumentsQty)
             {
                 _ = int.TryParse(cmdArgs[(int)Arguments.PTPid], out int powerToysPID);
@@ -100,9 +99,9 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
                         case "FileExplorer": StartupPage = typeof(Microsoft.PowerToys.Settings.UI.WinUI3.Views.PowerPreviewPage); break;
                         case "ShortcutGuide": StartupPage = typeof(Microsoft.PowerToys.Settings.UI.WinUI3.Views.ShortcutGuidePage); break;
                         case "VideoConference": StartupPage = typeof(Microsoft.PowerToys.Settings.UI.WinUI3.Views.VideoConferencePage); break;
-                        default: break;// TODO(stefan): This crashes Debug.Assert(false, "Unexpected SettingsWindow argument value"); break;
+                        default: Debug.Assert(false, "Unexpected SettingsWindow argument value"); break;
                     }
-                    // m_window.Asd().Text = StartupPage.ToString() + " " + cmdArgs[(int)Arguments.SettingsWindow];
+                    m_window.NavigateToSection(StartupPage);
                 }
 
                 RunnerHelper.WaitForPowerToysRunner(PowerToysPID, () =>
@@ -116,16 +115,17 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
                     {
                         m_window.DispatcherQueue.TryEnqueue(() =>
                         {
-                            // TODO(stefan): not sure if this is correct
                             IPCMessageReceivedCallback(message);
                         });
                     }
                 });
                 ipcmanager.Start();
+                // TODO(stefan)
                 //app.Run();
             }
             else
             {
+                // TODO(stefan) MessageBox not available
 /*                MessageBox.Show(
                     "The application cannot be run as a standalone process. Please start the application through the runner.",
                     "Forbidden",
@@ -141,8 +141,8 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
         public static bool IsDarkTheme()
         {
             var selectedTheme = SettingsRepository<GeneralSettings>.GetInstance(settingsUtils).SettingsConfig.Theme.ToUpper(CultureInfo.InvariantCulture);
-            var defaultTheme = new WindowsUI.ViewManagement.UISettings();
-            var uiTheme = defaultTheme.GetColorValue(WindowsUI.ViewManagement.UIColorType.Background).ToString(System.Globalization.CultureInfo.InvariantCulture);
+            var defaultTheme = new UISettings();
+            var uiTheme = defaultTheme.GetColorValue(UIColorType.Background).ToString(System.Globalization.CultureInfo.InvariantCulture);
             return selectedTheme == "DARK" || (selectedTheme == "SYSTEM" && uiTheme == "#FF000000");
         }
 

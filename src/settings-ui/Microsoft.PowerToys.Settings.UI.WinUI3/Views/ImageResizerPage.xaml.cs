@@ -5,7 +5,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
 using Microsoft.PowerToys.Settings.UI.Library;
 using Microsoft.PowerToys.Settings.UI.Library.Utilities;
 using Microsoft.PowerToys.Settings.UI.Library.ViewModels;
@@ -26,8 +25,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             var resourceLoader = ResourceLoader.GetForViewIndependentUse();
             Func<string, string> loader = (string name) =>
             {
-                //return resourceLoader.GetString(name);
-                return "TODO(stefan)";
+                return resourceLoader.GetString(name);
             };
 
             ViewModel = new ImageResizerViewModel(settingsUtils, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, loader);

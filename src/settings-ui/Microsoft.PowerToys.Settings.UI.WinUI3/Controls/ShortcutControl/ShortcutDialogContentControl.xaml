@@ -69,9 +69,11 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                        <!--TODO(stefan)<muxc:InfoBadge AutomationProperties.AccessibilityView="Raw"
+                    <!--TODO(stefan) InfoBadge not available
+                        <muxc:InfoBadge AutomationProperties.AccessibilityView="Raw"
                                         Margin="2,0,12,0"
-                                        Style="{StaticResource CriticalIconInfoBadgeStyle}" />-->
+                                        Style="{StaticResource CriticalIconInfoBadgeStyle}" />
+                    -->
                     
                         
 

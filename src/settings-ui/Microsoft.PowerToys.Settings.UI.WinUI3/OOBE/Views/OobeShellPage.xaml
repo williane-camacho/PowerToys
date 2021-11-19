@@ -8,7 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Loaded="UserControl_Loaded">
-    <!--TODO(stefan)winui:BackdropMaterial.ApplyToRootOrPageBackground="True"-->
+    <!--TODO(stefan) Bring back Should be available in v1.1
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"-->
 
     <UserControl.Resources>
         <DataTemplate x:Key="NavigationViewMenuItem" x:DataType="localModels:OobePowerToysModule">

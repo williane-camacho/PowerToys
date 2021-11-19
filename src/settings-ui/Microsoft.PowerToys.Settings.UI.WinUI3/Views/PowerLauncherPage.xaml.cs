@@ -11,9 +11,6 @@ using Microsoft.PowerToys.Settings.UI.Library.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.Resources;
 
-// TODO(stefan)
-using WindowsUI = Windows.UI;
-
 namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 {
     public sealed partial class PowerLauncherPage : Page
@@ -30,6 +27,7 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
             PowerLauncherSettings settings = settingsUtils.GetSettingsOrDefault<PowerLauncherSettings>(PowerLauncherSettings.ModuleName);
             ViewModel = new PowerLauncherViewModel(settings, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, App.IsDarkTheme);
             DataContext = ViewModel;
+
             _ = Helper.GetFileWatcher(PowerLauncherSettings.ModuleName, "settings.json", () =>
             {
                 PowerLauncherSettings powerLauncherSettings = null;
@@ -44,12 +42,8 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3.Views
 
                 if (powerLauncherSettings != null && !ViewModel.IsUpToDate(powerLauncherSettings))
                 {
-                    _ = Dispatcher.RunAsync(WindowsUI.Core.CoreDispatcherPriority.Normal, () =>
-                    {
-                        DataContext = ViewModel = new PowerLauncherViewModel(powerLauncherSettings, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, App.IsDarkTheme);
-                        // TODO(stefan)
-                        // this.Bindings.Update();
-                    });
+                    DataContext = ViewModel = new PowerLauncherViewModel(powerLauncherSettings, SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage, App.IsDarkTheme);
+                    this.Bindings.Update();
                 }
             });
 
