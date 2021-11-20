@@ -19,8 +19,8 @@ namespace Microsoft.PowerToys.Settings.UI.WinUI3
         public MainWindow()
         {
             this.InitializeComponent();
-            this.ExtendsContentIntoTitleBar = true;
-            this.SetTitleBar(CustomTitleBar); // This should work according to docs, but it doesn't.... So disabling for now together with ExtendsContentIntoTitleBar
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(CustomTitleBar); // This should work according to docs, but it doesn't.... So disabling for now together with ExtendsContentIntoTitleBar
 
             // send IPC Message
             ShellPage.SetDefaultSndMessageCallback(msg =>
