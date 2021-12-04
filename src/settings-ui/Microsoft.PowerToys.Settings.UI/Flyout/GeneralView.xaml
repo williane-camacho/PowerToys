@@ -17,19 +17,19 @@
         <controls:WrapPanel Grid.Row="0" HorizontalAlignment="Center" Width="312" Margin="0,20,0,0" Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="24" >
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Run" ToolTipService.ToolTip="Launch Run (Alt + Space)">
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/PowerToys Run.png" Height="24" ShowAsMonochrome="False"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png" Height="24" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Run" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Color Picker" ToolTipService.ToolTip="Launch Color Picker (Ctrl + Alt + C)">
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/Color Picker.png" Height="20" ShowAsMonochrome="False"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Color Picker" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Shortcut Guide" ToolTipService.ToolTip="Launch Shortcut Guide (Windows key)">
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/Shortcut Guide.png" Height="20" ShowAsMonochrome="False"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/FluentIcons/ShortcutGuide.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Shortcut Guide" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
@@ -38,7 +38,7 @@
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Awake" Click="Options_Click">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/Awake.png" Height="24" ShowAsMonochrome="False"/>
+                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png" Height="24" ShowAsMonochrome="False"/>
                         <FontIcon Glyph="&#xE097;" FontSize="12" />
                     </StackPanel>
                 </Button>
@@ -48,7 +48,7 @@
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="FancyZones" Click="Options_Click">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/FancyZones.png" Height="24" ShowAsMonochrome="False"/>
+                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png" Height="24" ShowAsMonochrome="False"/>
                         <FontIcon Glyph="&#xE097;" FontSize="12" />
                     </StackPanel>
                 </Button>
@@ -58,7 +58,7 @@
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="VCM" Click="Options_Click">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/Video Conference Mute.png" Height="24" ShowAsMonochrome="False"/>
+                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsVideoConferenceMute.png" Height="24" ShowAsMonochrome="False"/>
                         <FontIcon Glyph="&#xE097;" FontSize="12" />
                     </StackPanel>
                 </Button>

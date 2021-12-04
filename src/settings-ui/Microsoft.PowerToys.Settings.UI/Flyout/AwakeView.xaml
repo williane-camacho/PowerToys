@@ -21,13 +21,13 @@
             <FontIcon Glyph="&#xE0D5;" FontSize="12" />
         </Button>
         <TextBlock VerticalAlignment="Center" Margin="16,0,0,0" Text="Mode" Grid.Row="1" HorizontalAlignment="Left" />
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,16,0" MinWidth="98" VerticalAlignment="Center" SelectedIndex="0" Grid.Row="1">
+        <ComboBox HorizontalAlignment="Right" Margin="0,0,16,0" MinWidth="98" VerticalAlignment="Center" Grid.Row="1" SelectedIndex="0">
             <ComboBoxItem>Off (Passive)</ComboBoxItem>
             <ComboBoxItem>Keep awake indefinitely</ComboBoxItem>
             <ComboBoxItem>Keep awake temporarily</ComboBoxItem>
         </ComboBox>
         <TextBlock Text="Keep screen on" VerticalAlignment="Center" Margin="16,0,0,0" Grid.Row="2"/>
-        <ToggleSwitch HorizontalAlignment="Right" IsOn="True" Margin="0,0,16,0" Grid.Row="2" FlowDirection="RightToLeft" />
+        <ToggleSwitch HorizontalAlignment="Right" Margin="0,0,16,0" Grid.Row="2" FlowDirection="RightToLeft" IsOn="True"/>
         <Grid HorizontalAlignment="Stretch" Grid.Row="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" VerticalAlignment="Stretch" />
         <Rectangle Height="1" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="{ThemeResource FlyoutBorderThemeBrush}" />
 

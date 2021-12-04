@@ -10,9 +10,12 @@
         Deactivated="Window_Deactivated"
         Width="350" Height="320"
         ResizeMode="NoResize"
-        WindowStyle="None"
+        Background="Transparent"
         Loaded="Window_Loaded"
         Closed="Window_Closed">
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
     <Grid>
         <xaml:WindowsXamlHost InitialTypeName="Microsoft.PowerToys.Settings.UI.Flyout.ShellPage" ChildChanged="WindowsXamlHost_ChildChanged" />
     </Grid>
