@@ -128,8 +128,8 @@ namespace PowerToys.Settings
                     var flyout = new FlyoutPage();
                     flyout.Show();
 
-                    // var oobe = new OobeWindow();
-                    // oobe.Show();
+                    var oobe = new OobeWindow();
+                    oobe.Show();
                 });
 
                 // receive IPC Message

@@ -13,14 +13,11 @@ using Windows.ApplicationModel.Resources;
 
 namespace PowerToys.Settings
 {
-    /// <summary>
-    /// Interaction logic for FlyoutPage.xaml
-    /// </summary>
     public partial class FlyoutPage : Window
     {
         private static Window inst;
+        private ShellPage shellPage;
 
-        // private ShellPage shellPage;
         public FlyoutPage()
         {
             InitializeComponent();
@@ -59,21 +56,20 @@ namespace PowerToys.Settings
                 return;
             }
 
-            /*
             WindowsXamlHost windowsXamlHost = sender as WindowsXamlHost;
             shellPage = windowsXamlHost.GetUwpInternalObject() as ShellPage;
 
-            ShellPage.SetRunSharedEventCallback(() =>
+            /* ShellPage.SetRunSharedEventCallback(() =>
             {
                 return Constants.PowerLauncherSharedEvent();
-            });
+            }); */
 
             ShellPage.SetColorPickerSharedEventCallback(() =>
             {
                 return Constants.ShowColorPickerSharedEvent();
             });
 
-            ShellPage.SetOpenMainWindowCallback((Type type) =>
+            /* ShellPage.SetOpenMainWindowCallback((Type type) =>
             {
                 ((App)Application.Current).OpenSettingsWindow(type);
             }); */

@@ -22,7 +22,7 @@
                 <TextBlock Text="Run" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="Color Picker" ToolTipService.ToolTip="Launch Color Picker (Ctrl + Alt + C)">
+                <Button Height="48" Width="96" Tag="Color Picker" ToolTipService.ToolTip="Launch Color Picker (Ctrl + Alt + C)" Click="Button_Click">
                     <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Color Picker" FontSize="12" HorizontalAlignment="Center"/>

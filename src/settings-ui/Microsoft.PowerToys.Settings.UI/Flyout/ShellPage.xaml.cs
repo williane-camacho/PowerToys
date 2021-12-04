@@ -19,21 +19,14 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class ShellPage : Page
     {
-        /// <summary>
-        /// Declaration for the ipc callback function.
-        /// </summary>
-        /// <param name="msg">message.</param>
-        public delegate void IPCMessageCallback(string msg);
+        public static Func<string> ColorPickerSharedEventCallback { get; set; }
 
-        /// <summary>
-        /// Gets or sets iPC default callback function.
-        /// </summary>
-        public static IPCMessageCallback DefaultSndMSGCallback { get; set; }
+        public static void SetColorPickerSharedEventCallback(Func<string> implementation)
+        {
+            ColorPickerSharedEventCallback = implementation;
+        }
 
         public ShellPage()
         {
@@ -43,12 +36,6 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(typeof(GeneralView), null, null);
-        }
-
-        public static int SendDefaultIPCMessage(string msg)
-        {
-            DefaultSndMSGCallback?.Invoke(msg);
-            return 0;
         }
     }
 }

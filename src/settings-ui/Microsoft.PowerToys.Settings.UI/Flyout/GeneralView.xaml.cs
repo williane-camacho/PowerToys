@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -38,6 +39,17 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
                 case "Awake": selectedFrame.Navigate(typeof(AwakeView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
 
                 // case "FancyZones": selectedFrame.Navigate(typeof(FancyZonesView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ShellPage.ColorPickerSharedEventCallback != null)
+            {
+                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, ShellPage.ColorPickerSharedEventCallback()))
+                {
+                    eventHandle.Set();
+                }
             }
         }
     }
