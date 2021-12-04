@@ -15,23 +15,30 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class ShellPage : Page
+    public sealed partial class GeneralView : Page
     {
-        public ShellPage()
+        public GeneralView()
         {
             this.InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Options_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(GeneralView), null, null);
+            Button selectedButton = sender as Button;
+
+            Frame selectedFrame = this.Parent as Frame;
+
+            switch ((string)selectedButton.Tag)
+            {
+                case "Awake": selectedFrame.Navigate(typeof(AwakeView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
+
+                // case "FancyZones": selectedFrame.Navigate(typeof(FancyZonesView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
+            }
         }
     }
 }

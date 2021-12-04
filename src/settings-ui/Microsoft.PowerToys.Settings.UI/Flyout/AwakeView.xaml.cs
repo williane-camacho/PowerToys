@@ -19,19 +19,17 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class ShellPage : Page
+    public sealed partial class AwakeView : Page
     {
-        public ShellPage()
+        public AwakeView()
         {
             this.InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(GeneralView), null, null);
+            Frame selectedFrame = this.Parent as Frame;
+            selectedFrame.GoBack();
         }
     }
 }

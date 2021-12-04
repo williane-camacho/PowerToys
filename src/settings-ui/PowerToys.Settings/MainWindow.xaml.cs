@@ -125,8 +125,11 @@ namespace PowerToys.Settings
                 // open oobe
                 ShellPage.SetOpenOobeCallback(() =>
                 {
-                    var oobe = new OobeWindow();
-                    oobe.Show();
+                    var flyout = new FlyoutPage();
+                    flyout.Show();
+
+                    // var oobe = new OobeWindow();
+                    // oobe.Show();
                 });
 
                 // receive IPC Message
