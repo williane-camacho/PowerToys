@@ -16,20 +16,20 @@
         </Grid.RowDefinitions>
         <controls:WrapPanel Grid.Row="0" HorizontalAlignment="Center" Width="312" Margin="0,20,0,0" Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="24" >
             <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="Run" ToolTipService.ToolTip="Launch Run (Alt + Space)">
+                <Button Height="48" Width="96" Tag="Run" ToolTipService.ToolTip="Launch Run (Alt + Space)" Click="Run_Click">
                     <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png" Height="24" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Run" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="Color Picker" ToolTipService.ToolTip="Launch Color Picker (Ctrl + Alt + C)" Click="Button_Click">
+                <Button Height="48" Width="96" Tag="Color Picker" ToolTipService.ToolTip="Launch Color Picker (Ctrl + Alt + C)" Click="ColorPicker_Click">
                     <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Color Picker" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Shortcut Guide" ToolTipService.ToolTip="Launch Shortcut Guide (Windows key)">
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/FluentIcons/ShortcutGuide.png" Height="20" ShowAsMonochrome="False"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/FluentIcons/FluentIconsShortcutGuide.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Shortcut Guide" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
@@ -75,7 +75,7 @@
             <!--<Button Background="Transparent" ToolTipService.ToolTip="Documentation" BorderBrush="Transparent">
                 <FontIcon Glyph="&#xE11B;" FontSize="14" />
             </Button>-->
-            <Button Background="Transparent" Height="36" ToolTipService.ToolTip="Settings"  BorderBrush="Transparent">
+            <Button Background="Transparent" Height="36" ToolTipService.ToolTip="Settings"  BorderBrush="Transparent" Click="Settings_Click">
                 <FontIcon Glyph="&#xE115;" FontSize="14" />
             </Button>
 

@@ -2,22 +2,11 @@
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Microsoft.PowerToys.Settings.UI.Views;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
@@ -42,7 +31,7 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ColorPicker_Click(object sender, RoutedEventArgs e)
         {
             if (ShellPage.ColorPickerSharedEventCallback != null)
             {
@@ -50,6 +39,25 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
                 {
                     eventHandle.Set();
                 }
+            }
+        }
+
+        private void Run_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ShellPage.RunSharedEventCallback != null)
+            {
+                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, ShellPage.RunSharedEventCallback()))
+                {
+                    eventHandle.Set();
+                }
+            }
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            if (ShellPage.OpenMainWindowCallback != null)
+            {
+                ShellPage.OpenMainWindowCallback(typeof(GeneralPage));
             }
         }
     }

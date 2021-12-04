@@ -59,20 +59,20 @@ namespace PowerToys.Settings
             WindowsXamlHost windowsXamlHost = sender as WindowsXamlHost;
             shellPage = windowsXamlHost.GetUwpInternalObject() as ShellPage;
 
-            /* ShellPage.SetRunSharedEventCallback(() =>
+            ShellPage.SetRunSharedEventCallback(() =>
             {
                 return Constants.PowerLauncherSharedEvent();
-            }); */
+            });
 
             ShellPage.SetColorPickerSharedEventCallback(() =>
             {
                 return Constants.ShowColorPickerSharedEvent();
             });
 
-            /* ShellPage.SetOpenMainWindowCallback((Type type) =>
+            ShellPage.SetOpenMainWindowCallback((Type type) =>
             {
                 ((App)Application.Current).OpenSettingsWindow(type);
-            }); */
+            });
         }
 
         protected override void OnSourceInitialized(EventArgs e)

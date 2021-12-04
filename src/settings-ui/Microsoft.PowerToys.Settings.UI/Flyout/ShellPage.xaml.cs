@@ -21,11 +21,25 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
     public sealed partial class ShellPage : Page
     {
+        public static Func<string> RunSharedEventCallback { get; set; }
+
+        public static void SetRunSharedEventCallback(Func<string> implementation)
+        {
+            RunSharedEventCallback = implementation;
+        }
+
         public static Func<string> ColorPickerSharedEventCallback { get; set; }
 
         public static void SetColorPickerSharedEventCallback(Func<string> implementation)
         {
             ColorPickerSharedEventCallback = implementation;
+        }
+
+        public static Action<Type> OpenMainWindowCallback { get; set; }
+
+        public static void SetOpenMainWindowCallback(Action<Type> implementation)
+        {
+            OpenMainWindowCallback = implementation;
         }
 
         public ShellPage()
