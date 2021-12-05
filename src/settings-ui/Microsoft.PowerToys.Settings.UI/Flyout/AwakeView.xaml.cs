@@ -11,8 +11,13 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
     public sealed partial class AwakeView : Page
     {
+        private AwakeViewModel ViewModel { get; set; }
+
         public AwakeView()
         {
+            var settingsUtils = new SettingsUtils();
+            ViewModel = new AwakeViewModel(SettingsRepository<GeneralSettings>.GetInstance(settingsUtils), SettingsRepository<AwakeSettings>.GetInstance(settingsUtils), ShellPage.SendDefaultIPCMessage);
+            DataContext = ViewModel;
             this.InitializeComponent();
         }
 

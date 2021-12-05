@@ -21,6 +21,17 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
     public sealed partial class ShellPage : Page
     {
+        /// <summary>
+        /// Declaration for the ipc callback function.
+        /// </summary>
+        /// <param name="msg">message.</param>
+        public delegate void IPCMessageCallback(string msg);
+
+        /// <summary>
+        /// Gets or sets iPC default callback function.
+        /// </summary>
+        public static IPCMessageCallback DefaultSndMSGCallback { get; set; }
+
         public static Func<string> RunSharedEventCallback { get; set; }
 
         public static void SetRunSharedEventCallback(Func<string> implementation)
@@ -35,6 +46,13 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
             ColorPickerSharedEventCallback = implementation;
         }
 
+        public static Func<string> FancyZonesSharedEventCallback { get; set; }
+
+        public static void SetFancyZonesSharedEventCallback(Func<string> implementation)
+        {
+            FancyZonesSharedEventCallback = implementation;
+        }
+
         public static Action<Type> OpenMainWindowCallback { get; set; }
 
         public static void SetOpenMainWindowCallback(Action<Type> implementation)
@@ -45,6 +63,12 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
         public ShellPage()
         {
             this.InitializeComponent();
+        }
+
+        public static int SendDefaultIPCMessage(string msg)
+        {
+            DefaultSndMSGCallback?.Invoke(msg);
+            return 0;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

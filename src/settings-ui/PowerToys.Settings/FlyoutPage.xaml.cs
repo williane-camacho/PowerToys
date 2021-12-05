@@ -69,6 +69,11 @@ namespace PowerToys.Settings
                 return Constants.ShowColorPickerSharedEvent();
             });
 
+            ShellPage.SetFancyZonesSharedEventCallback(() =>
+            {
+                return "{\"action\":{\"FancyZones\":{\"action_name\":\"ToggledFZEditor\", \"value\":\"\"}}}";
+            });
+
             ShellPage.SetOpenMainWindowCallback((Type type) =>
             {
                 ((App)Application.Current).OpenSettingsWindow(type);

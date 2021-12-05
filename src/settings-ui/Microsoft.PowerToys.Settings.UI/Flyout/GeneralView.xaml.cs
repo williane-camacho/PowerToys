@@ -2,6 +2,7 @@
 // The Microsoft Corporation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using System;
 using System.Threading;
 using Microsoft.PowerToys.Settings.UI.Views;
 using Windows.UI.Xaml;
@@ -12,6 +13,8 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
 {
     public sealed partial class GeneralView : Page
     {
+        private Func<string, int> SendConfigMSG { get; }
+
         public GeneralView()
         {
             this.InitializeComponent();
@@ -58,6 +61,17 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
             if (ShellPage.OpenMainWindowCallback != null)
             {
                 ShellPage.OpenMainWindowCallback(typeof(GeneralPage));
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ShellPage.FancyZonesSharedEventCallback != null)
+            {
+                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, ShellPage.FancyZonesSharedEventCallback()))
+                {
+                    eventHandle.Set();
+                }
             }
         }
     }
