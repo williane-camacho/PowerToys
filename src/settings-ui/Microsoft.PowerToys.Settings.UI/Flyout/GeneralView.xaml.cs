@@ -15,23 +15,16 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
     {
         private Func<string, int> SendConfigMSG { get; }
 
+        private Frame selectedFrame;
+
         public GeneralView()
         {
             this.InitializeComponent();
         }
 
-        private void Options_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Button selectedButton = sender as Button;
-
-            Frame selectedFrame = this.Parent as Frame;
-
-            switch ((string)selectedButton.Tag)
-            {
-                case "Awake": selectedFrame.Navigate(typeof(AwakeView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
-
-                // case "FancyZones": selectedFrame.Navigate(typeof(FancyZonesView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight }); break;
-            }
+            selectedFrame = this.Parent as Frame;
         }
 
         private void ColorPicker_Click(object sender, RoutedEventArgs e)
@@ -64,15 +57,21 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FancyZonesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ShellPage.FancyZonesSharedEventCallback != null)
-            {
-                using (var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, ShellPage.FancyZonesSharedEventCallback()))
-                {
-                    eventHandle.Set();
-                }
-            }
+        }
+
+        private void AwakeButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedFrame.Navigate(typeof(AwakeView), null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
+
+        private void ShortcutGuideButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void VCMButton_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

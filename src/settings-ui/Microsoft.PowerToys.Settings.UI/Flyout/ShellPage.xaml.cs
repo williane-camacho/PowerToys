@@ -46,13 +46,6 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
             ColorPickerSharedEventCallback = implementation;
         }
 
-        public static Func<string> FancyZonesSharedEventCallback { get; set; }
-
-        public static void SetFancyZonesSharedEventCallback(Func<string> implementation)
-        {
-            FancyZonesSharedEventCallback = implementation;
-        }
-
         public static Action<Type> OpenMainWindowCallback { get; set; }
 
         public static void SetOpenMainWindowCallback(Action<Type> implementation)

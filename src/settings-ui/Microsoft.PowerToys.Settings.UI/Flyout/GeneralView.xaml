@@ -6,7 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
+    Loaded="Page_Loaded"
+    xmlns:toolkitcontrols="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls" xmlns:animatedVisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,7 +16,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="48"/>
         </Grid.RowDefinitions>
-        <controls:WrapPanel Grid.Row="0" HorizontalAlignment="Center" Width="312" Margin="0,20,0,0" Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="24" >
+        <toolkitcontrols:WrapPanel Grid.Row="0" HorizontalAlignment="Center" Width="312" Margin="0,20,0,0" Orientation="Horizontal" HorizontalSpacing="12" VerticalSpacing="24" >
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Run" ToolTipService.ToolTip="Launch Run (Alt + Space)" Click="Run_Click">
                     <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png" Height="24" ShowAsMonochrome="False"/>
@@ -29,43 +31,41 @@
             </StackPanel>
             <StackPanel Spacing="8">
                 <Button Height="48" Width="96" Tag="Shortcut Guide" ToolTipService.ToolTip="Launch Shortcut Guide (Windows key)">
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/FluentIcons/FluentIconsShortcutGuide.png" Height="20" ShowAsMonochrome="False"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsShortcutGuide.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="Shortcut Guide" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
 
-
             <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="Awake" Click="Options_Click">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png" Height="24" ShowAsMonochrome="False"/>
-                        <FontIcon Glyph="&#xE097;" FontSize="12" />
-                    </StackPanel>
-                </Button>
-                <TextBlock Text="Awake" FontSize="12" HorizontalAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="FancyZones" Click="Button_Click">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png" Height="24" ShowAsMonochrome="False"/>
-                        <FontIcon Glyph="&#xE097;" FontSize="12" />
-                    </StackPanel>
+                <Button Height="48" Width="96" Tag="FancyZones" Click="FancyZonesButton_Click">
+                    <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png" Height="20" ShowAsMonochrome="False"/>
                 </Button>
                 <TextBlock Text="FancyZones" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
 
             <StackPanel Spacing="8">
-                <Button Height="48" Width="96" Tag="VCM" Click="Options_Click">
+                <Button Height="48" Width="96" Tag="Awake" Click="AwakeButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png" Height="24" ShowAsMonochrome="False"/>
+                        <FontIcon Glyph="&#xE097;" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="Awake" FontSize="12" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+          
+
+            <StackPanel Spacing="8">
+                <Button Height="48" Width="96" Tag="VCM" Click="VCMButton_Click">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <BitmapIcon UriSource="ms-appx:///Assets/FluentIcons/FluentIconsVideoConferenceMute.png" Height="24" ShowAsMonochrome="False"/>
-                        <FontIcon Glyph="&#xE097;" FontSize="12" />
+                        <FontIcon Glyph="&#xE097;" FontSize="10" />
                     </StackPanel>
                 </Button>
                 <TextBlock Text="Mute" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
 
-        </controls:WrapPanel>
+        </toolkitcontrols:WrapPanel>
 
 
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{ThemeResource SystemControlAcrylicElementBrush}" VerticalAlignment="Stretch" />
@@ -75,8 +75,15 @@
             <!--<Button Background="Transparent" ToolTipService.ToolTip="Documentation" BorderBrush="Transparent">
                 <FontIcon Glyph="&#xE11B;" FontSize="14" />
             </Button>-->
-            <Button Background="Transparent" Height="36" ToolTipService.ToolTip="Settings"  BorderBrush="Transparent" Click="Settings_Click">
-                <FontIcon Glyph="&#xE115;" FontSize="14" />
+            <Button Background="Transparent" Height="32" Padding="6" ToolTipService.ToolTip="Settings"  BorderBrush="Transparent" Click="Settings_Click">
+                <controls:AnimatedIcon x:Name="SearchAnimatedIcon">
+                    <controls:AnimatedIcon.Source>
+                        <animatedVisuals:AnimatedSettingsVisualSource />
+                    </controls:AnimatedIcon.Source>
+                    <controls:AnimatedIcon.FallbackIconSource>
+                        <controls:SymbolIconSource Symbol="Setting" />
+                    </controls:AnimatedIcon.FallbackIconSource>
+                </controls:AnimatedIcon>
             </Button>
 
         </StackPanel>
