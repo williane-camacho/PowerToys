@@ -21,12 +21,13 @@ namespace PowerToys.Settings
             ElevatedStatus,
             IsUserAdmin,
             ShowOobeWindow,
+            ShowFlyout,
             SettingsWindow,
         }
 
         // Quantity of arguments
-        private const int RequiredArgumentsQty = 7;
-        private const int RequiredAndOptionalArgumentsQty = 8;
+        private const int RequiredArgumentsQty = 8;
+        private const int RequiredAndOptionalArgumentsQty = 9;
 
         // Create an instance of the  IPC wrapper.
         private static TwoWayPipeMessageIPCManaged ipcmanager;
@@ -55,8 +56,9 @@ namespace PowerToys.Settings
                     IsElevated = args[(int)Arguments.ElevatedStatus] == "true";
                     IsUserAnAdmin = args[(int)Arguments.IsUserAdmin] == "true";
                     app.ShowOobe = args[(int)Arguments.ShowOobeWindow] == "true";
+                    app.ShowFlyout = args[(int)Arguments.ShowFlyout] == "true";
 
-                    if (args.Length == RequiredAndOptionalArgumentsQty)
+                    if (args.Length >= RequiredAndOptionalArgumentsQty)
                     {
                         // open specific window
                         switch (args[(int)Arguments.SettingsWindow])

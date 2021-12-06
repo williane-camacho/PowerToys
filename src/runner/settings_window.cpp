@@ -260,7 +260,7 @@ BOOL run_settings_non_elevated(LPCWSTR executable_path, LPWSTR executable_args, 
 
 DWORD g_settings_process_id = 0;
 
-void run_settings_window(bool show_oobe_window, std::optional<std::wstring> settings_window)
+void run_settings_window(bool show_oobe_window, std::optional<std::wstring> settings_window, bool show_flyout = false)
 {
     g_isLaunchInProgress = true;
 
@@ -326,6 +326,7 @@ void run_settings_window(bool show_oobe_window, std::optional<std::wstring> sett
 
     // Arg 8: should oobe window be shown
     std::wstring settings_showOobe = show_oobe_window ? L"true" : L"false";
+    std::wstring settings_showFlyout = show_flyout ? L"true" : L"false";
 
     // create general settings file to initialize the settings file with installation configurations like :
     // 1. Run on start up.
@@ -347,6 +348,8 @@ void run_settings_window(bool show_oobe_window, std::optional<std::wstring> sett
     executable_args.append(settings_isUserAnAdmin);
     executable_args.append(L" ");
     executable_args.append(settings_showOobe);
+    executable_args.append(L" ");
+    executable_args.append(settings_showFlyout);
 
     if (settings_window.has_value())
     {
@@ -479,7 +482,7 @@ void bring_settings_to_front()
     EnumWindows(callback, 0);
 }
 
-void open_settings_window(std::optional<std::wstring> settings_window)
+void open_settings_window(std::optional<std::wstring> settings_window, bool show_flyout)
 {
     if (g_settings_process_id != 0)
     {
@@ -489,8 +492,8 @@ void open_settings_window(std::optional<std::wstring> settings_window)
     {
         if (!g_isLaunchInProgress)
         {
-            std::thread([settings_window]() {
-                run_settings_window(false, settings_window);
+            std::thread([settings_window, show_flyout]() {
+                run_settings_window(false, settings_window, show_flyout);
             }).detach();
         }
     }
@@ -509,6 +512,13 @@ void close_settings_window()
 }
 
 void open_oobe_window()
+{
+    std::thread([]() {
+        run_settings_window(true, std::nullopt);
+    }).detach();
+}
+
+void open_flyout()
 {
     std::thread([]() {
         run_settings_window(true, std::nullopt);

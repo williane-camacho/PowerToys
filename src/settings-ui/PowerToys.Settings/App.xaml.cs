@@ -18,6 +18,8 @@ namespace PowerToys.Settings
 
         public bool ShowOobe { get; set; }
 
+        public bool ShowFlyout { get; set; }
+
         public Type StartupPage { get; set; } = typeof(Microsoft.PowerToys.Settings.UI.Views.GeneralPage);
 
         public void OpenSettingsWindow(Type type)
@@ -45,23 +47,31 @@ namespace PowerToys.Settings
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            if (!ShowOobe)
+            if (ShowFlyout)
             {
-                settingsWindow = new MainWindow();
-                settingsWindow.Show();
-                settingsWindow.NavigateToSection(StartupPage);
+                FlyoutPage flyout = new FlyoutPage();
+                flyout.Show();
             }
             else
             {
-                PowerToysTelemetry.Log.WriteEvent(new OobeStartedEvent());
+                if (!ShowOobe)
+                {
+                    settingsWindow = new MainWindow();
+                    settingsWindow.Show();
+                    settingsWindow.NavigateToSection(StartupPage);
+                }
+                else
+                {
+                    PowerToysTelemetry.Log.WriteEvent(new OobeStartedEvent());
 
-                // Create the Settings window so that it's fully initialized and
-                // it will be ready to receive the notification if the user opens
-                // the Settings from the tray icon.
-                InitHiddenSettingsWindow();
+                    // Create the Settings window so that it's fully initialized and
+                    // it will be ready to receive the notification if the user opens
+                    // the Settings from the tray icon.
+                    InitHiddenSettingsWindow();
 
-                OobeWindow oobeWindow = new OobeWindow();
-                oobeWindow.Show();
+                    OobeWindow oobeWindow = new OobeWindow();
+                    oobeWindow.Show();
+                }
             }
         }
     }
