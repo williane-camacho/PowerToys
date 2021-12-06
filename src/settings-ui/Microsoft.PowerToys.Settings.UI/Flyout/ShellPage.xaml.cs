@@ -56,17 +56,13 @@ namespace Microsoft.PowerToys.Settings.UI.Flyout
         public ShellPage()
         {
             this.InitializeComponent();
+            ContentFrame.Navigate(typeof(GeneralView), null, null);
         }
 
         public static int SendDefaultIPCMessage(string msg)
         {
             DefaultSndMSGCallback?.Invoke(msg);
             return 0;
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            ContentFrame.Navigate(typeof(GeneralView), null, null);
         }
     }
 }

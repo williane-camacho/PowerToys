@@ -61,19 +61,16 @@ namespace PowerToys.Settings
 
             ShellPage.SetRunSharedEventCallback(() =>
             {
-                this.Close();
                 return Constants.PowerLauncherSharedEvent();
             });
 
             ShellPage.SetColorPickerSharedEventCallback(() =>
             {
-                this.Close();
                 return Constants.ShowColorPickerSharedEvent();
             });
 
             ShellPage.SetOpenMainWindowCallback((Type type) =>
             {
-                this.Close();
                 ((App)Application.Current).OpenSettingsWindow(type);
             });
         }
@@ -83,12 +80,6 @@ namespace PowerToys.Settings
             base.OnSourceInitialized(e);
             var hwnd = new WindowInteropHelper(this).Handle;
             NativeMethods.SetPopupStyle(hwnd);
-        }
-
-        private void Window_Deactivated(object sender, EventArgs e)
-        {
-            // OnDeactivated(e);
-            // Close();
         }
     }
 }
