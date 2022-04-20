@@ -29,7 +29,8 @@
                         Margin="16,8,8,0">
                 <Image Source="/Assets/FluentIcons/FluentIconsPowerToys.png" Width="16" />
                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}"
-                           Margin="12,0,0,0" Text="Environment Manager" />
+                           Margin="12,0,0,0"
+                           x:Uid="WindowsTitle"/>
             </StackPanel>
             
         </Grid>

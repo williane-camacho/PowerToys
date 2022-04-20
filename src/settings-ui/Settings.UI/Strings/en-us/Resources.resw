@@ -1469,6 +1469,9 @@ From there, simply click on one of the supported files in the File Explorer and 
   <data name="SettingsWindow_Title" xml:space="preserve">
     <value>PowerToys Settings</value>
   </data>
+	<data name="WindowsTitle.Text" xml:space="preserve">
+    <value>PowerToys Settings</value>
+  </data>
   <data name="Awake.ModuleTitle" xml:space="preserve">
     <value>Awake</value>
   </data>
