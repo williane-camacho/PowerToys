@@ -39,6 +39,7 @@ namespace Microsoft.PowerToys.Settings.UI
             {
                 var titlebar = appWindow.TitleBar;
                 titlebar.ExtendsContentIntoTitleBar = true;
+                titlebar.BackgroundColor = Colors.Transparent;
             }
             else
             {

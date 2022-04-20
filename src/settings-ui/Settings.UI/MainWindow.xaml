@@ -21,18 +21,17 @@
                 <ColumnDefinition/>
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="TitleBarIcon"
-                   Source="/Assets/FluentIcons/FluentIconsPowerToys.png"
-                   Grid.Column="1"
-                   HorizontalAlignment="Left"
-                   Width="16" Height="16"
-                   Margin="8,0,0,0"/>
-            <TextBlock x:Name="TitleTextBlock"
-                       Text="App sdfsdf"
-                       Style="{StaticResource CaptionTextBlockStyle}"
-                       Grid.Column="1"
-                       VerticalAlignment="Center"
-                       Margin="28,0,0,0"/>
+            <StackPanel
+                        Orientation="Horizontal"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Top"
+                        Margin="16,8,8,0">
+                <Image Source="/Assets/FluentIcons/FluentIconsPowerToys.png" Width="16" />
+                <TextBlock Style="{StaticResource CaptionTextBlockStyle}"
+                           Margin="12,0,0,0" Text="Environment Manager" />
+            </StackPanel>
+            
         </Grid>
         
         <local:ShellPage Grid.Row="1"/>
