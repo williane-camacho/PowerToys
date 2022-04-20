@@ -12,6 +12,7 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Windows.ApplicationModel.Resources;
 using Windows.Data.Json;
+using WinRT.Interop;
 
 namespace Microsoft.PowerToys.Settings.UI
 {
@@ -20,6 +21,8 @@ namespace Microsoft.PowerToys.Settings.UI
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private AppWindow appWindow;
+
         public MainWindow()
         {
             var bootTime = new System.Diagnostics.Stopwatch();
@@ -29,13 +32,22 @@ namespace Microsoft.PowerToys.Settings.UI
             ShellPage.SetIsUserAnAdmin(App.IsUserAnAdmin);
 
             // Set window icon
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
-            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.SetIcon("icon.ico");
+            appWindow = GetAppWindowForCurrentWindow();
 
-            ResourceLoader loader = ResourceLoader.GetForViewIndependentUse();
-            Title = loader.GetString("SettingsWindow_Title");
+            // Only works on Windows 11 for now
+            if (AppWindowTitleBar.IsCustomizationSupported())
+            {
+                var titlebar = appWindow.TitleBar;
+                titlebar.ExtendsContentIntoTitleBar = true;
+            }
+            else
+            {
+                // Windows 10 fallback
+                appWindow.SetIcon("icon.ico");
+                ResourceLoader loader = ResourceLoader.GetForViewIndependentUse();
+                Title = loader.GetString("SettingsWindow_Title");
+                AppTitleBar.Visibility = Visibility.Collapsed;
+            }
 
             // send IPC Message
             ShellPage.SetDefaultSndMessageCallback(msg =>
@@ -93,6 +105,13 @@ namespace Microsoft.PowerToys.Settings.UI
             bootTime.Stop();
 
             PowerToysTelemetry.Log.WriteEvent(new SettingsBootEvent() { BootTimeMs = bootTime.ElapsedMilliseconds });
+        }
+
+        private AppWindow GetAppWindowForCurrentWindow()
+        {
+            IntPtr hWnd = WindowNative.GetWindowHandle(this);
+            WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            return AppWindow.GetFromWindowId(wndId);
         }
 
         public void NavigateToSection(System.Type type)
