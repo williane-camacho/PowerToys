@@ -10,8 +10,10 @@ using Microsoft.PowerToys.Telemetry;
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 using Windows.ApplicationModel.Resources;
 using Windows.Data.Json;
+using Windows.UI;
 using WinRT.Interop;
 
 namespace Microsoft.PowerToys.Settings.UI
@@ -30,25 +32,6 @@ namespace Microsoft.PowerToys.Settings.UI
 
             ShellPage.SetElevationStatus(App.IsElevated);
             ShellPage.SetIsUserAnAdmin(App.IsUserAnAdmin);
-
-            // Set window icon
-            appWindow = GetAppWindowForCurrentWindow();
-
-            // Only works on Windows 11 for now
-            if (AppWindowTitleBar.IsCustomizationSupported())
-            {
-                var titlebar = appWindow.TitleBar;
-                titlebar.ExtendsContentIntoTitleBar = true;
-                titlebar.BackgroundColor = Colors.Transparent;
-            }
-            else
-            {
-                // Windows 10 fallback
-                appWindow.SetIcon("icon.ico");
-                ResourceLoader loader = ResourceLoader.GetForViewIndependentUse();
-                Title = loader.GetString("SettingsWindow_Title");
-                AppTitleBar.Visibility = Visibility.Collapsed;
-            }
 
             // send IPC Message
             ShellPage.SetDefaultSndMessageCallback(msg =>
@@ -83,6 +66,8 @@ namespace Microsoft.PowerToys.Settings.UI
 
             this.InitializeComponent();
 
+            SetTitleBar();
+
             // receive IPC Message
             App.IPCMessageReceivedCallback = (string msg) =>
             {
@@ -106,6 +91,29 @@ namespace Microsoft.PowerToys.Settings.UI
             bootTime.Stop();
 
             PowerToysTelemetry.Log.WriteEvent(new SettingsBootEvent() { BootTimeMs = bootTime.ElapsedMilliseconds });
+        }
+
+        private void SetTitleBar()
+        {
+            // Set window icon
+            appWindow = GetAppWindowForCurrentWindow();
+
+            // Only works on Windows 11 for now
+            if (AppWindowTitleBar.IsCustomizationSupported())
+            {
+                var titlebar = appWindow.TitleBar;
+                titlebar.ExtendsContentIntoTitleBar = true;
+                titlebar.ButtonBackgroundColor = (Color)App.Current.Resources["SolidBackgroundFillColorBase"];
+                titlebar.ButtonInactiveBackgroundColor = (Color)App.Current.Resources["SolidBackgroundFillColorBase"];
+            }
+            else
+            {
+                // Windows 10 fallback: stick to default titlebar
+                appWindow.SetIcon("icon.ico");
+                ResourceLoader loader = ResourceLoader.GetForViewIndependentUse();
+                Title = loader.GetString("SettingsWindow_Title");
+                AppTitleBar.Visibility = Visibility.Collapsed;
+            }
         }
 
         private AppWindow GetAppWindowForCurrentWindow()
