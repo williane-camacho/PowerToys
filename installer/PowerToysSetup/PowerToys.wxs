@@ -75,17 +75,17 @@
             <ExePackage
                 Name="WindowsAppRuntimeInstall.exe"
                 Compressed="no"
-                Id="WinAppSDK101"
-                DownloadUrl="https://aka.ms/windowsappsdk/1.0/1.0.3/windowsappruntimeinstall-1.0.3-x64.exe"
+                Id="WinAppSDK110Preview3"
+                DownloadUrl="https://aka.ms/windowsappsdk/1.1/1.1.0-preview3/windowsappruntimeinstall-1.1.0-preview3-x64.exe"
                 RepairCommand=""
                 Permanent="yes">
                 <ExitCode Value="-2147009274" Behavior="success"/>
                 <RemotePayload
-                    Description="Windows App SDK 1.0.3 Runtime Install"
-                    ProductName="Windows App SDK 1.0.3 Runtime Install"
-                    Size="57090456"
-                    Version="1.0.3.0"
-                    Hash="1269BB136655325EF6D66A018269BDAB3921E56B" />
+                    Description="Windows App SDK 1.1.0-Preview3 Runtime Install"
+                    ProductName="Windows App SDK 1.1.0-Preview3 Runtime Install"
+                    Size="59293696"
+                    Version="1.1.0.0"
+                    Hash="2F46277DD42E380EF5C80C560D2B9DC45B5628E2" />
             </ExePackage>            
             <MsiPackage
                 SourceFile="x64\Release\PowerToysSetup-$(var.Version)-x64.msi"
