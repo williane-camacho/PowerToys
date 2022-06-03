@@ -499,6 +499,7 @@ namespace Microsoft.Plugin.Program.Programs
 
                     // Using CurrentCulture since this is user facing
                     program.FullPath = Path.GetFullPath(target).ToLowerInvariant();
+                    program.ExecutableName = Path.GetFileName(program.FullPath);
 
                     program.Arguments = ShellLinkHelper.Arguments;
 
